@@ -2,9 +2,9 @@ env:
   browser: true
   es6: true
 extends:
-  - 'eslint:recommended'
-  - 'plugin:react/recommended'
-  - 'prettier'
+  - "eslint:recommended"
+  - "plugin:react/recommended"
+  - "prettier"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -15,4 +15,6 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+overrides:
+  [{ "files": ["**/*.test.js", "**/*.test.jsx"], "env": { "jest": true } }]
 rules: {}
