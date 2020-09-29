@@ -23,7 +23,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version}}
 
-      # ESLint and Prettier must be in package.json
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm install
 
