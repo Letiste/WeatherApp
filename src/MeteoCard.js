@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import { makeStyles } from "@material-ui/core/styles";
-=======
 import makeStyles from "@material-ui/core/styles/makeStyles";
->>>>>>> 79b1db877d966f88d3b1632f45d186d5cb43862f
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
