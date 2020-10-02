@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -51,3 +52,7 @@ export default function SearchBar({ setData }) {
     />
   );
 }
+
+SearchBar.propTypes = {
+  setData: PropTypes.func,
+};

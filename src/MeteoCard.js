@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { PropTypes } from "prop-types";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -65,7 +66,7 @@ export default function MeteoCard({ data }) {
       const today = new Date().toLocaleDateString();
       const day = days[new Date().getDay()];
       setCity(data.name);
-      setTempMin(Math.floor(main.temp_max - 273));
+      setTempMin(Math.floor(main.temp_min - 273));
       setTempMax(Math.floor(main.temp_max - 273));
       setWeekday(day);
       setDate(today);
@@ -135,3 +136,19 @@ export default function MeteoCard({ data }) {
     </>
   );
 }
+
+MeteoCard.propTypes = {
+  data: PropTypes.shape({
+    main: PropTypes.shape({
+      humidity: PropTypes.number,
+      temp: PropTypes.number,
+      temp_min: PropTypes.number,
+      temp_max: PropTypes.number,
+    }),
+    name: PropTypes.string,
+    weather: PropTypes.any,
+    wind: PropTypes.shape({
+      speed: PropTypes.number,
+    }),
+  }),
+};
