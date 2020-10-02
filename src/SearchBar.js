@@ -5,7 +5,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
-  root: { marginTop: 30, marginBottom: 30 },
+  root: {
+    marginTop: 30,
+    marginBottom: 30,
+    backgroundColor: "rgba(240,240,240,0.8)",
+    borderRadius: 4,
+  },
 });
 
 export default function SearchBar() {
@@ -16,8 +21,8 @@ export default function SearchBar() {
       className={classes.root}
       id="input-with-icon-textfield"
       type="search"
-      label="Search a City !"
       variant="outlined"
+      placeholder="Search a City !"
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
