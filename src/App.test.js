@@ -5,6 +5,6 @@ import App from "./App";
 test("renders meteoapp", () => {
   const { getByText } = render(<App />);
   console.log(getByText);
-  const linkElement = getByText(/MeteoApp/i);
+  const linkElement = getByText(/WeatherApp/i);
   expect(linkElement).toBeInTheDocument();
 });
