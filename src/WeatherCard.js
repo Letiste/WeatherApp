@@ -48,7 +48,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MeteoCard({ data }) {
+export default function WeatherCard({ data }) {
   const classes = useStyles();
   const [city, setCity] = useState();
   const [tempMin, setTempMin] = useState();
@@ -137,7 +137,7 @@ export default function MeteoCard({ data }) {
   );
 }
 
-MeteoCard.propTypes = {
+WeatherCard.propTypes = {
   data: PropTypes.shape({
     main: PropTypes.shape({
       humidity: PropTypes.number,
