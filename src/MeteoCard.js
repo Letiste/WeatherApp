@@ -3,6 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import cloudy from "./assets/animated/rainy-3.svg";
 
 const useStyles = makeStyles({
   root: {
@@ -10,12 +11,15 @@ const useStyles = makeStyles({
     minHeight: 350,
     textAlign: "center",
     padding: 20,
+    background: "rgba(240,240,240,0.8)",
   },
-  title: { fontSize: 25, textAlign: "left", fontWeight: "bold" },
-  tempMinMax: { fontSize: 18, textAlign: "right" },
-  date: { fontSize: 20, marginBottom: 5 },
-  wind: { fontSize: 15 },
-  rain: { fontSize: 20 },
+  title: { fontSize: 35, textAlign: "left", fontWeight: "bold" },
+  tempMinMax: { fontSize: 25, textAlign: "right" },
+  date: { fontSize: 25, marginBottom: 5 },
+  wind: { fontSize: 19 },
+  rain: { fontSize: 25 },
+  svg: { height: 250, marginRight: -110, marginLeft: -110 },
+  temp: { fontSize: 100, textAlign: "right" },
 });
 
 export default function MeteoCard() {
@@ -31,34 +35,32 @@ export default function MeteoCard() {
         </Grid>
 
         <Grid item xs={6}>
-          <Typography className={classes.tempMinMax} color="textPrimary">
-            18° 25°
-          </Typography>
+          <Typography className={classes.tempMinMax}>18° 25°</Typography>
         </Grid>
 
         <Grid item xs={4}>
           <Grid container direction="column" alignItems="flex-start">
             <Grid item className={classes.date}>
-              MONDAY
+              <Typography className={classes.date}>MONDAY</Typography>
             </Grid>
             <Grid item className={classes.date}>
-              00/00/2016
+              <Typography className={classes.date}>00/00/2016</Typography>
             </Grid>
             <Grid item className={classes.wind}>
-              Wind 6km/h
+              <Typography className={classes.wind}>Wind 6km/h</Typography>
             </Grid>
             <Grid item className={classes.rain}>
-              30%
+              <Typography className={classes.rain}>30%</Typography>
             </Grid>
           </Grid>
         </Grid>
 
         <Grid item xs={4}>
-          IMAGE METEO
+          <img src={cloudy} className={classes.svg} alt="cloudy-svg" />
         </Grid>
 
         <Grid item xs={4}>
-          TEMPERATURE
+          <Typography className={classes.temp}>22°</Typography>
         </Grid>
       </Grid>
     </Paper>
