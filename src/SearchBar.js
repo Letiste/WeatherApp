@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
+import WeatherService from "./services/WeatherService";
 
 const useStyles = makeStyles({
   root: {
@@ -13,8 +14,21 @@ const useStyles = makeStyles({
   },
 });
 
+function handleChange(e, setValue) {
+  setValue(e.target.value);
+}
+
+function searchCity(city, key) {
+  if (key === "Enter") {
+    WeatherService.get(city)
+      .then((res) => console.log(res.data))
+      .catch(console.log);
+  }
+}
+
 export default function SearchBar() {
   const classes = useStyles();
+  const [city, setCity] = useState("");
 
   return (
     <TextField
@@ -23,6 +37,7 @@ export default function SearchBar() {
       type="search"
       variant="outlined"
       placeholder="Search a City !"
+      value={city}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
@@ -30,6 +45,8 @@ export default function SearchBar() {
           </InputAdornment>
         ),
       }}
+      onKeyPress={(e) => searchCity(city, e.key)}
+      onChange={(e) => handleChange(e, setCity)}
     />
   );
 }
