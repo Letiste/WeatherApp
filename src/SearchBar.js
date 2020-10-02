@@ -18,17 +18,18 @@ function handleChange(e, setValue) {
   setValue(e.target.value);
 }
 
-function searchCity(city, key) {
-  if (key === "Enter") {
-    WeatherService.get(city)
-      .then((res) => console.log(res.data))
-      .catch(console.log);
-  }
-}
-
-export default function SearchBar() {
+export default function SearchBar({ setData }) {
   const classes = useStyles();
   const [city, setCity] = useState("");
+
+  function searchCity(e) {
+    if (e.key === "Enter") {
+      console.log(city);
+      WeatherService.get(city)
+        .then((res) => setData(res.data))
+        .catch(console.log);
+    }
+  }
 
   return (
     <TextField
@@ -45,7 +46,7 @@ export default function SearchBar() {
           </InputAdornment>
         ),
       }}
-      onKeyPress={(e) => searchCity(city, e.key)}
+      onKeyPress={searchCity}
       onChange={(e) => handleChange(e, setCity)}
     />
   );
