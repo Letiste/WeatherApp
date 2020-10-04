@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles({
-  title: { color: "white" },
+  title: { color: "white", textAlign: "center" },
 });
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <Typography className={classes.title} variant="h1">
-        WeatherApp
+        Weather App
       </Typography>
       <SearchBar setData={setData} />
       <WeatherCard data={data} />
