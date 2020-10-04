@@ -32,6 +32,7 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     textAlign: "center",
     ["@media (min-width: 960px)"]: {
+      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -49,6 +50,7 @@ const useStyles = makeStyles({
     marginBottom: 5,
     textAlign: "right",
     ["@media (min-width: 960px)"]: {
+      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -57,6 +59,7 @@ const useStyles = makeStyles({
     fontSize: 25,
     textAlign: "right",
     ["@media (min-width: 960px)"]: {
+      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -78,6 +81,7 @@ const useStyles = makeStyles({
     fontWeight: "normal",
     textAlign: "left",
     ["@media (min-width: 960px)"]: {
+      // eslint-disable-line no-useless-computed-key
       textAlign: "center",
     },
   },
