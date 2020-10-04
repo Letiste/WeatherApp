@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,QAAS,CACT,YAAa,CACb,2DACF","file":"main.dc056029.chunk.css","sourcesContent":["body {\n  margin: 0;\n  height: 100vh;\n  background: no-repeat url(./assets/bg.jpg) center center;\n}\n"]}
