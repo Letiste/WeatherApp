@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
+    // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
-      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -49,8 +49,8 @@ const useStyles = makeStyles({
     fontSize: 25,
     marginBottom: 5,
     textAlign: "right",
+    // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
-      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -58,8 +58,8 @@ const useStyles = makeStyles({
   rain: {
     fontSize: 25,
     textAlign: "right",
+    // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
-      // eslint-disable-line no-useless-computed-key
       textAlign: "left",
     },
   },
@@ -80,8 +80,8 @@ const useStyles = makeStyles({
     fontSize: 35,
     fontWeight: "normal",
     textAlign: "left",
+    // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
-      // eslint-disable-line no-useless-computed-key
       textAlign: "center",
     },
   },
