@@ -8,7 +8,6 @@ import WeatherService from "./services/WeatherService";
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 30,
     marginBottom: 30,
     backgroundColor: "rgba(240,240,240,0.8)",
     borderRadius: 4,
