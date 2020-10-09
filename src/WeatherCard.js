@@ -24,7 +24,9 @@ const weathers = { Clouds: Clouds, Clear: Clear, Rain: Rain, Snow: Snow };
 const useStyles = makeStyles({
   root: {
     textAlign: "center",
-    padding: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    paddingTop: 20,
     background: "rgba(240,240,240,0.50)",
     borderRadius: 10,
   },
@@ -55,9 +57,9 @@ const useStyles = makeStyles({
       textAlign: "left",
     },
   },
-  wind: { fontSize: 15, textAlign: "left" },
+  wind: { fontSize: 25, textAlign: "left" },
   rain: {
-    fontSize: 15,
+    fontSize: 25,
     textAlign: "right",
     // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
