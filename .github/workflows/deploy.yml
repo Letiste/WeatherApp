@@ -51,7 +51,7 @@ jobs:
         run: npm run build
 
       - name: Login to Firebase
-        run: firebase login:ci
+        run: firebase login:ci --interactive
 
       - name: Deploy to Firebase
         run: firebase deploy
