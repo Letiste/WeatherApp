@@ -23,18 +23,53 @@ const weathers = { Clouds: Clouds, Clear: Clear, Rain: Rain, Snow: Snow };
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
-    height: 250,
     textAlign: "center",
     padding: 20,
     background: "rgba(240,240,240,0.8)",
   },
-  title: { fontSize: 35, textAlign: "left", fontWeight: "bold" },
-  tempMinMax: { fontSize: 25, textAlign: "right" },
-  date: { fontSize: 25, marginBottom: 5 },
-  wind: { fontSize: 19 },
-  rain: { fontSize: 25 },
-  svg: { height: 250, marginRight: -110, marginLeft: -110, marginTop: -20 },
+  title: {
+    fontSize: 35,
+    fontWeight: "bold",
+    textAlign: "center",
+    // eslint-disable-next-line
+    ["@media (min-width: 960px)"]: {
+      textAlign: "left",
+    },
+  },
+  tempMinMax: {
+    fontSize: 35,
+    textAlign: "right",
+  },
+  day: {
+    fontSize: 25,
+    marginBottom: 5,
+    textAlign: "left",
+  },
+  date: {
+    fontSize: 25,
+    marginBottom: 5,
+    textAlign: "right",
+    // eslint-disable-next-line
+    ["@media (min-width: 960px)"]: {
+      textAlign: "left",
+    },
+  },
+  wind: { fontSize: 25, textAlign: "left" },
+  rain: {
+    fontSize: 25,
+    textAlign: "right",
+    // eslint-disable-next-line
+    ["@media (min-width: 960px)"]: {
+      textAlign: "left",
+    },
+  },
+  svg: {
+    height: 250,
+    marginRight: -110,
+    marginLeft: -110,
+    marginTop: -20,
+    marginBottom: -30,
+  },
   temp: {
     fontSize: 100,
     textAlign: "right",
@@ -43,8 +78,12 @@ const useStyles = makeStyles({
   },
   weather: {
     fontSize: 35,
-    textAlign: "center",
-    fontWeight: "bold",
+    fontWeight: "normal",
+    textAlign: "left",
+    // eslint-disable-next-line
+    ["@media (min-width: 960px)"]: {
+      textAlign: "center",
+    },
   },
 });
 
@@ -82,42 +121,40 @@ export default function WeatherCard({ data }) {
       {data ? (
         <Paper className={classes.root} elevation={3} variant="outlined">
           <Grid container>
-            <Grid item xs={4}>
-              <Typography className={classes.title} color="textPrimary">
-                {city}
-              </Typography>
+            <Grid item xs={12} md={4}>
+              <Typography className={classes.title}>{city}</Typography>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
               <Typography className={classes.weather}>{weather}</Typography>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
               <Typography className={classes.tempMinMax}>
                 {tempMin}° {tempMax}°
               </Typography>
             </Grid>
 
-            <Grid item xs={4}>
-              <Grid container direction="column" alignItems="flex-start">
-                <Grid item className={classes.date}>
-                  <Typography className={classes.date}>{weekday}</Typography>
+            <Grid item xs={12} md={4}>
+              <Grid container alignItems="flex-start">
+                <Grid item xs={6} md={12} className={classes.date}>
+                  <Typography className={classes.day}>{weekday}</Typography>
                 </Grid>
-                <Grid item className={classes.date}>
+                <Grid item xs={6} md={12} className={classes.date}>
                   <Typography className={classes.date}>{date}</Typography>
                 </Grid>
-                <Grid item className={classes.wind}>
+                <Grid item xs={6} md={12} className={classes.wind}>
                   <Typography className={classes.wind}>
                     Wind {wind}km/h
                   </Typography>
                 </Grid>
-                <Grid item className={classes.rain}>
+                <Grid item xs={6} md={12} className={classes.rain}>
                   <Typography className={classes.rain}>{rain}%</Typography>
                 </Grid>
               </Grid>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
               <img
                 src={weathers[weather]}
                 className={classes.svg}
@@ -125,7 +162,7 @@ export default function WeatherCard({ data }) {
               />
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
               <Typography className={classes.temp}>{temp}°</Typography>
             </Grid>
           </Grid>
