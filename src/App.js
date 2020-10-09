@@ -15,11 +15,13 @@ function App() {
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <Typography className={classes.title} variant="h1">
-        Weather App
+      <Typography className={classes.title} variant="h6">
+        <h1>Weather App</h1>
       </Typography>
       <SearchBar setData={setData} />
-      <WeatherCard data={data} />
+      <Grid item xs={10}>
+        <WeatherCard data={data} />
+      </Grid>
     </Grid>
   );
 }

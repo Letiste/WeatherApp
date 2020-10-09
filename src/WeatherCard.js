@@ -25,7 +25,8 @@ const useStyles = makeStyles({
   root: {
     textAlign: "center",
     padding: 20,
-    background: "rgba(240,240,240,0.8)",
+    background: "rgba(240,240,240,0.50)",
+    borderRadius: 10,
   },
   title: {
     fontSize: 35,
@@ -54,9 +55,9 @@ const useStyles = makeStyles({
       textAlign: "left",
     },
   },
-  wind: { fontSize: 25, textAlign: "left" },
+  wind: { fontSize: 15, textAlign: "left" },
   rain: {
-    fontSize: 25,
+    fontSize: 15,
     textAlign: "right",
     // eslint-disable-next-line
     ["@media (min-width: 960px)"]: {
@@ -71,13 +72,13 @@ const useStyles = makeStyles({
     marginBottom: -30,
   },
   temp: {
-    fontSize: 100,
+    fontSize: 60,
     textAlign: "right",
     fontWeight: "bold",
     paddingTop: 20,
   },
   weather: {
-    fontSize: 35,
+    fontSize: 25,
     fontWeight: "normal",
     textAlign: "left",
     // eslint-disable-next-line
@@ -120,7 +121,7 @@ export default function WeatherCard({ data }) {
     <>
       {data ? (
         <Paper className={classes.root} elevation={3} variant="outlined">
-          <Grid container>
+          <Grid container justify="space-evenly" alignItems="center">
             <Grid item xs={12} md={4}>
               <Typography className={classes.title}>{city}</Typography>
             </Grid>
