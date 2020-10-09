@@ -50,8 +50,5 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Login to Firebase
-        run: firebase login:ci --interactive
-
       - name: Deploy to Firebase
         run: firebase deploy
