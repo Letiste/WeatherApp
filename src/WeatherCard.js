@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-
 const days = [
   "Sunday",
   "Monday",
@@ -15,7 +14,6 @@ const days = [
   "Friday",
   "Saturday",
 ];
-
 
 const useStyles = makeStyles({
   root: {
@@ -125,7 +123,9 @@ export default function WeatherCard({ data }) {
             </Grid>
 
             <Grid item xs={6} md={4}>
-              <Typography className={classes.weather}>{weather.main}</Typography>
+              <Typography className={classes.weather}>
+                {weather.main}
+              </Typography>
             </Grid>
 
             <Grid item xs={6} md={4}>
@@ -143,9 +143,7 @@ export default function WeatherCard({ data }) {
                   <Typography className={classes.date}>{date}</Typography>
                 </Grid>
                 <Grid item xs={6} md={12} className={classes.wind}>
-                  <Typography className={classes.wind}>
-                     {wind}km/h
-                  </Typography>
+                  <Typography className={classes.wind}>{wind}km/h</Typography>
                 </Grid>
                 <Grid item xs={6} md={12} className={classes.rain}>
                   <Typography className={classes.rain}>{rain}%</Typography>
