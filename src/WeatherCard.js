@@ -4,10 +4,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Clouds from "./assets/animated/Clouds.svg";
-import Clear from "./assets/animated/Clear.svg";
-import Rain from "./assets/animated/Rain.svg";
-import Snow from "./assets/animated/Snow.svg";
 
 const days = [
   "Sunday",
@@ -18,8 +14,6 @@ const days = [
   "Friday",
   "Saturday",
 ];
-
-const weathers = { Clouds: Clouds, Clear: Clear, Rain: Rain, Snow: Snow };
 
 const useStyles = makeStyles({
   root: {
@@ -100,7 +94,7 @@ export default function WeatherCard({ data }) {
   const [wind, setWind] = useState();
   const [rain, setRain] = useState();
   const [temp, setTemp] = useState();
-  const [weather, setWeather] = useState("Clear");
+  const [weather, setWeather] = useState("");
 
   useEffect(() => {
     if (data) {
@@ -108,14 +102,14 @@ export default function WeatherCard({ data }) {
       const today = new Date().toLocaleDateString();
       const day = days[new Date().getDay()];
       setCity(data.name);
-      setTempMin(Math.floor(main.temp_min - 273));
-      setTempMax(Math.floor(main.temp_max - 273));
+      setTempMin(Math.floor(main.temp_min));
+      setTempMax(Math.floor(main.temp_max));
       setWeekday(day);
       setDate(today);
       setWind(data.wind.speed);
       setRain(main.humidity);
-      setTemp(Math.floor(main.temp - 273));
-      setWeather(`${data.weather[0].main}`);
+      setTemp(Math.floor(main.temp));
+      setWeather(data.weather[0]);
     }
   }, [data]);
 
@@ -129,7 +123,9 @@ export default function WeatherCard({ data }) {
             </Grid>
 
             <Grid item xs={6} md={4}>
-              <Typography className={classes.weather}>{weather}</Typography>
+              <Typography className={classes.weather}>
+                {weather.main}
+              </Typography>
             </Grid>
 
             <Grid item xs={6} md={4}>
@@ -147,9 +143,7 @@ export default function WeatherCard({ data }) {
                   <Typography className={classes.date}>{date}</Typography>
                 </Grid>
                 <Grid item xs={6} md={12} className={classes.wind}>
-                  <Typography className={classes.wind}>
-                    Wind {wind}km/h
-                  </Typography>
+                  <Typography className={classes.wind}>{wind}km/h</Typography>
                 </Grid>
                 <Grid item xs={6} md={12} className={classes.rain}>
                   <Typography className={classes.rain}>{rain}%</Typography>
@@ -159,9 +153,9 @@ export default function WeatherCard({ data }) {
 
             <Grid item xs={6} md={4}>
               <img
-                src={weathers[weather]}
+                src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                 className={classes.svg}
-                alt="cloudy-svg"
+                alt={data.weather[0].description}
               />
             </Grid>
 
