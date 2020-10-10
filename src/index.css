@@ -1,5 +1,6 @@
 body {
   margin: 0;
-  height: 100vh;
-  background: no-repeat url(./assets/bg.jpg) center center;
+  background: no-repeat url(./assets/bg.jpg) center 30%;
+  background-size: auto cover;
+  background-attachment: initial;
 }
